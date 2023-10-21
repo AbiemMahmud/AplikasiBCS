@@ -5,7 +5,12 @@
  */
 package aplikasibcs.kontrol;
 
+import aplikasibcs.dao.DaoCustomer;
+import aplikasibcs.model.Customer;
 import aplikasibcs.view.InCustomerFrame;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -13,23 +18,28 @@ import aplikasibcs.view.InCustomerFrame;
  */
 public class KontrolInputCust {
     InCustomerFrame fr;
+    DaoCustomer dc;
     
     public KontrolInputCust(InCustomerFrame fr){
         this.fr = fr;
+        this.dc = new DaoCustomer();
     }
     
     public boolean cekField(){
         return !(fr.getIdCustF().getText().equals("")||fr.getNamaCustF().getText().equals(""));
     }
     
-    public void cekField2() {
-        NullPointerException e = null;
+    public void cekField2() throws InputMismatchException{
         if (fr.getIdCustF().getText().equals("")||fr.getNamaCustF().getText().equals("")) {
-            throw (e);
+            throw new InputMismatchException();
         }
     }
     
-    public void input() {
-        fr.getIdCustF();
+    public void input() throws SQLException {
+        cekField2();
+        Customer c = new Customer();
+        c.setId_cust(fr.getIdCustF().getText());
+        c.setNama_cust(fr.getNamaCustF().getText());
+        dc.insertCust(c);
     }
 }

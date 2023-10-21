@@ -17,13 +17,15 @@ import java.sql.SQLException;
  */
 public class DaoCustomer {
     Connection con;
-    final String INSERT = "INSERT INTO customer VALUES (?,?)";
+    final String INSERT = "INSERT INTO customer (id_customer, nama_customer) VALUES (?,?)";
     
     public DaoCustomer() {
         con = Koneksi.buatKoneksi();
     }
-    public boolean insertCust(Customer c) throws SQLException {
+    public void insertCust(Customer c) throws SQLException {
         PreparedStatement ps = con.prepareStatement(INSERT);
-        return false;
+        ps.setString(1, c.getId_cust());
+        ps.setString(2, c.getNama_cust());
+        ps.execute();
     }
 }

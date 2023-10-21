@@ -6,7 +6,10 @@
 package aplikasibcs.view;
 
 import aplikasibcs.kontrol.KontrolInputCust;
+import java.sql.SQLException;
+import java.util.InputMismatchException;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -91,7 +94,14 @@ public class InCustomerFrame extends javax.swing.JInternalFrame {
 
     private void inputBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputBActionPerformed
         // TODO add your handling code here:
-        kic.cekField2();
+        try {
+            kic.input();
+            JOptionPane.showMessageDialog(null, "Data berhasil masuk");
+        } catch (InputMismatchException e){
+            JOptionPane.showMessageDialog(null, "Harap isi field yang kosong!");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Data Yang Anda Masukkan Tidak Valid!");
+        }
     }//GEN-LAST:event_inputBActionPerformed
 
 
