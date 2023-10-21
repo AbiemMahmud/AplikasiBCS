@@ -10,8 +10,6 @@ import aplikasibcs.model.Barang;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -27,19 +25,14 @@ public class DaoBarang {
         this.c = Koneksi.buatKoneksi();
     }
     
-    public boolean insertBrg (Barang b) {
-        try {
-            PreparedStatement ps = c.prepareStatement(INSERT);
-            ps.setString(1, b.getId_brg());
-            ps.setString(2, b.getNama_brg());
-            ps.setInt(3, b.getJumlah_brg());
-            ps.setInt(4, b.getHarga_brg());
-            ps.setString(5, b.getId_sup());
-            
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException ex) {
-            return false;
-        }
+    public void insertBrg (Barang b) throws SQLException {
+        PreparedStatement ps = c.prepareStatement(INSERT);
+        ps.setString(1, b.getId_brg());
+        ps.setString(2, b.getNama_brg());
+        ps.setInt(3, b.getJumlah_brg());
+        ps.setInt(4, b.getHarga_brg());
+        ps.setString(5, b.getId_sup());            
+        
+        ps.executeUpdate();
     }
 }

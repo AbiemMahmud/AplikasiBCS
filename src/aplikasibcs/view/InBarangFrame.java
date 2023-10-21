@@ -5,9 +5,9 @@
  */
 package aplikasibcs.view;
 
-import aplikasibcs.dao.DaoBarang;
+import aplikasibcs.exception.FieldKosongException;
 import aplikasibcs.kontrol.KontrolInputBarang;
-import java.awt.Dimension;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -185,10 +185,13 @@ public class InBarangFrame extends javax.swing.JInternalFrame {
 
     private void inputBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputBActionPerformed
         // TODO add your handling code here:
-        if (kib.cekField()&&kib.inputBrg()) {
-            JOptionPane.showMessageDialog(null, "Data Berhasil Diinput!!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Data Gagal Diinput!!");
+        try {
+            kib.inputBrg();
+            JOptionPane.showMessageDialog(null, "Data berhasil diinput");
+        } catch (FieldKosongException e){
+            JOptionPane.showMessageDialog(null, "Field belum diisi!");
+        } catch (SQLException s) {
+            JOptionPane.showMessageDialog(null, "Data gagal diinput!");
         }
     }//GEN-LAST:event_inputBActionPerformed
 

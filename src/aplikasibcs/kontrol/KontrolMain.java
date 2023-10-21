@@ -24,11 +24,13 @@ public class KontrolMain {
         InBarangFrame fr = new InBarangFrame();
         mf.getDesk().add(fr);
         fr.setVisible(true);
+        ExtraFunc.centerComp(mf.getDesk(), fr);
     }
     
     public void tampilInCust(){
         InCustomerFrame fr = new InCustomerFrame();
         mf.getDesk().add(fr);
         fr.setVisible(true);
+        ExtraFunc.centerComp(mf.getDesk(), fr);
     }
 }

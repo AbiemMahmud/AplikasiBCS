@@ -6,11 +6,10 @@
 package aplikasibcs.kontrol;
 
 import aplikasibcs.dao.DaoCustomer;
+import aplikasibcs.exception.FieldKosongException;
 import aplikasibcs.model.Customer;
 import aplikasibcs.view.InCustomerFrame;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.InputMismatchException;
 
 /**
  *
@@ -25,18 +24,14 @@ public class KontrolInputCust {
         this.dc = new DaoCustomer();
     }
     
-    public boolean cekField(){
-        return !(fr.getIdCustF().getText().equals("")||fr.getNamaCustF().getText().equals(""));
-    }
-    
-    public void cekField2() throws InputMismatchException{
+    public void cekField() throws FieldKosongException{
         if (fr.getIdCustF().getText().equals("")||fr.getNamaCustF().getText().equals("")) {
-            throw new InputMismatchException();
+            throw new FieldKosongException();
         }
     }
     
-    public void input() throws SQLException {
-        cekField2();
+    public void input() throws SQLException, FieldKosongException {
+        cekField();
         Customer c = new Customer();
         c.setId_cust(fr.getIdCustF().getText());
         c.setNama_cust(fr.getNamaCustF().getText());

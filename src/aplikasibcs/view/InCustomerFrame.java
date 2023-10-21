@@ -5,9 +5,9 @@
  */
 package aplikasibcs.view;
 
+import aplikasibcs.exception.FieldKosongException;
 import aplikasibcs.kontrol.KontrolInputCust;
 import java.sql.SQLException;
-import java.util.InputMismatchException;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -23,6 +23,7 @@ public class InCustomerFrame extends javax.swing.JInternalFrame {
      */
     KontrolInputCust kic;
     public InCustomerFrame() {
+        super("Input Data Customer");
         initComponents();
         this.kic = new KontrolInputCust(this);
     }
@@ -41,6 +42,11 @@ public class InCustomerFrame extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         namaCustF = new javax.swing.JTextField();
         inputB = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jLabel1.setText("ID");
 
@@ -97,7 +103,7 @@ public class InCustomerFrame extends javax.swing.JInternalFrame {
         try {
             kic.input();
             JOptionPane.showMessageDialog(null, "Data berhasil masuk");
-        } catch (InputMismatchException e){
+        } catch (FieldKosongException e){
             JOptionPane.showMessageDialog(null, "Harap isi field yang kosong!");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Data Yang Anda Masukkan Tidak Valid!");

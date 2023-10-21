@@ -6,8 +6,10 @@
 package aplikasibcs.kontrol;
 
 import aplikasibcs.dao.DaoBarang;
+import aplikasibcs.exception.FieldKosongException;
 import aplikasibcs.model.Barang;
 import aplikasibcs.view.InBarangFrame;
+import java.sql.SQLException;
 
 /**
  *
@@ -23,28 +25,25 @@ public class KontrolInputBarang {
     }
     
 //    Fungsi untuk cek apakah field yang diisi valid
-    public boolean cekField() {
+    public void cekField() throws FieldKosongException{
         if (fr.getJumlahF().getText().equals("")){
             fr.getJumlahF().setText("0");
         }
-        return !(fr.getKodeF().getText().equals("")||fr.getNamaF().getText().equals("")||fr.getHargaF().getText().equals("")
-                ||fr.getIdSupF().getText().equals(""));
+        if (fr.getKodeF().getText().equals("")||fr.getNamaF().getText().equals("")||fr.getHargaF().getText().equals("")
+                ||fr.getIdSupF().getText().equals("")) {
+           throw new FieldKosongException();
+        }
     }
     
-    public boolean inputBrg () {
+    public void inputBrg () throws SQLException, FieldKosongException {
+        cekField();
         Barang b = new Barang();
-        
-        try {
-            b.setId_brg(fr.getKodeF().getText());
-            b.setNama_brg(fr.getNamaF().getText());
-            b.setHarga_brg(Integer.valueOf(fr.getHargaF().getText()));
-            b.setJumlah_brg(Integer.valueOf(fr.getJumlahF().getText()));
-            b.setId_sup(fr.getIdSupF().getText());
-        } catch (Exception e) {
-            return false;
-        }
-        
-        return db.insertBrg(b);
+        b.setId_brg(fr.getKodeF().getText());
+        b.setNama_brg(fr.getNamaF().getText());
+        b.setHarga_brg(Integer.valueOf(fr.getHargaF().getText()));
+        b.setJumlah_brg(Integer.valueOf(fr.getJumlahF().getText()));
+        b.setId_sup(fr.getIdSupF().getText());
+        db.insertBrg(b);
     }
     
 //    Fungsi untuk mereset field

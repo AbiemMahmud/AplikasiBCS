@@ -33,8 +33,4 @@ public class Koneksi {
         
         return con;
     }
-    
-    public static void main(String[] args) {
-        Connection c = buatKoneksi();
-    }
 }

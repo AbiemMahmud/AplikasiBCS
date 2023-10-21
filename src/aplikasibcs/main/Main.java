@@ -5,12 +5,7 @@
  */
 package aplikasibcs.main;
 
-import aplikasibcs.koneksi.Koneksi;
 import aplikasibcs.view.MainFrame;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
