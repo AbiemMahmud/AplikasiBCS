@@ -9,6 +9,7 @@ import aplikasibcs.view.input.InBarangFrame;
 import aplikasibcs.view.input.InCustomerFrame;
 import aplikasibcs.view.MainFrame;
 import aplikasibcs.view.input.InSupplierFrame;
+import aplikasibcs.view.invetory.InventoryFrame;
 
 /**
  *
@@ -37,6 +38,13 @@ public class KontrolMain {
     
     public void tampilInSupp () {
         InSupplierFrame fr = new InSupplierFrame();
+        mf.getDesk().add(fr);
+        fr.setVisible(true);
+        ExtraFunc.centerComp(mf.getDesk(), fr);
+    }
+    
+    public void tampilInventory () {
+        InventoryFrame fr = new InventoryFrame();
         mf.getDesk().add(fr);
         fr.setVisible(true);
         ExtraFunc.centerComp(mf.getDesk(), fr);

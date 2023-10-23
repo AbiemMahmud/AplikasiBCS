@@ -91,13 +91,16 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu1.add(mnInput);
 
         mnTrans.setText("Transaksi");
-
-        trBarang.setText("jMenuItem1");
         mnTrans.add(trBarang);
 
         jMenu1.add(mnTrans);
 
         inventory.setText("Inventory");
+        inventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryActionPerformed(evt);
+            }
+        });
         jMenu1.add(inventory);
 
         jMenuBar1.add(jMenu1);
@@ -148,6 +151,11 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         km.tampilInSupp();
     }//GEN-LAST:event_inSupplierActionPerformed
+
+    private void inventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryActionPerformed
+        // TODO add your handling code here:
+        km.tampilInventory();
+    }//GEN-LAST:event_inventoryActionPerformed
 
     /**
      * @param args the command line arguments

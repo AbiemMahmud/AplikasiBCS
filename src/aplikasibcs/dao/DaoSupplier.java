@@ -9,7 +9,10 @@ import aplikasibcs.koneksi.Koneksi;
 import aplikasibcs.model.Supplier;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,6 +21,7 @@ import java.sql.SQLException;
 public class DaoSupplier {
     Connection con;
     final String INSERT;
+    final String SELECTN = "SELECT nama_supplier FROM supplier";
 
     
     public DaoSupplier() {

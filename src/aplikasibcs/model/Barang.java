@@ -24,7 +24,7 @@ public class Barang {
     }
 
     
-    public Barang(int jumlah_brg, int harga_brg, String id_brg, String nama_brg, String id_sup) {
+    public Barang(String id_brg, String nama_brg, int jumlah_brg, int harga_brg, String id_sup) {
         this.jumlah_brg = jumlah_brg;
         this.harga_brg = harga_brg;
         this.id_brg = id_brg;
