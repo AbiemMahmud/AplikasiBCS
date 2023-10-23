@@ -8,7 +8,7 @@ package aplikasibcs.kontrol;
 import aplikasibcs.dao.DaoCustomer;
 import aplikasibcs.exception.FieldKosongException;
 import aplikasibcs.model.Customer;
-import aplikasibcs.view.InCustomerFrame;
+import aplikasibcs.view.input.InCustomerFrame;
 import java.sql.SQLException;
 
 /**

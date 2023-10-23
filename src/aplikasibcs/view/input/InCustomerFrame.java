@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplikasibcs.view;
+package aplikasibcs.view.input;
 
 import aplikasibcs.exception.FieldKosongException;
 import aplikasibcs.kontrol.KontrolInputCust;

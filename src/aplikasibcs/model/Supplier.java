@@ -13,6 +13,9 @@ public class Supplier {
     private String id_sup, nama_sup, alamat_sup;
 
 //    Overflow constructor
+    public Supplier() {
+    }
+
     public Supplier(String id_sup, String nama_sup) {
         this.id_sup = id_sup;
         this.nama_sup = nama_sup;

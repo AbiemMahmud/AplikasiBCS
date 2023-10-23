@@ -5,9 +5,10 @@
  */
 package aplikasibcs.kontrol;
 
-import aplikasibcs.view.InBarangFrame;
-import aplikasibcs.view.InCustomerFrame;
+import aplikasibcs.view.input.InBarangFrame;
+import aplikasibcs.view.input.InCustomerFrame;
 import aplikasibcs.view.MainFrame;
+import aplikasibcs.view.input.InSupplierFrame;
 
 /**
  *
@@ -29,6 +30,13 @@ public class KontrolMain {
     
     public void tampilInCust(){
         InCustomerFrame fr = new InCustomerFrame();
+        mf.getDesk().add(fr);
+        fr.setVisible(true);
+        ExtraFunc.centerComp(mf.getDesk(), fr);
+    }
+    
+    public void tampilInSupp () {
+        InSupplierFrame fr = new InSupplierFrame();
         mf.getDesk().add(fr);
         fr.setVisible(true);
         ExtraFunc.centerComp(mf.getDesk(), fr);

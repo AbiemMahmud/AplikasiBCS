@@ -17,11 +17,16 @@ import java.sql.SQLException;
  */
 public class DaoCustomer {
     Connection con;
-    final String INSERT = "INSERT INTO customer (id_customer, nama_customer) VALUES (?,?)";
+    final String INSERT;
     
+
     public DaoCustomer() {
+        String tabel = "customer";
+        String[] kl = {"id_customer","nama_customer"};
+        this.INSERT = DaoFunc.getInsert(tabel, kl);
         con = Koneksi.buatKoneksi();
     }
+    
     public void insertCust(Customer c) throws SQLException {
         PreparedStatement ps = con.prepareStatement(INSERT);
         ps.setString(1, c.getId_cust());

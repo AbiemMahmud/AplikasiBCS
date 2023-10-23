@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplikasibcs.view;
+package aplikasibcs.view.input;
 
 import aplikasibcs.exception.FieldKosongException;
 import aplikasibcs.kontrol.KontrolInputBarang;
@@ -190,8 +190,12 @@ public class InBarangFrame extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Data berhasil diinput");
         } catch (FieldKosongException e){
             JOptionPane.showMessageDialog(null, "Field belum diisi!");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Data yang dimasukkan salah!");
+            hargaF.requestFocus();
         } catch (SQLException s) {
-            JOptionPane.showMessageDialog(null, "Data gagal diinput!");
+            JOptionPane.showMessageDialog(null, "Data gagal diinput!\n\n"
+                    + "Id/Data sudah ada atau Koneksi gagal");
         }
     }//GEN-LAST:event_inputBActionPerformed
 
